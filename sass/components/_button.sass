@@ -1,0 +1,55 @@
+//Стили для конпок
+//Кнопка главная
+.button
+   &_animated
+      animation: bottomToTop 2s ease
+   &, &:link, &:visited   
+      @include style-link($font-grey)
+      position: relative
+      font-size: 2rem
+      font-weight: 500
+      letter-spacing: .5rem
+      padding: 1.5rem 4rem
+      background-color: $font-white
+      border-radius: 10rem
+      transition: all .3s ease
+      box-shadow: $box-shadow
+      border: none
+      @include respond(tab-land)
+         letter-spacing: .2rem
+         padding: 1.5rem 3rem
+      @include respond(tab-port)
+         &:visited, &:link
+            letter-spacing: .5rem
+            padding: 2.5rem 4rem
+         &::after
+            left: 5.5rem
+            top: 0rem
+            width: 20rem
+            height: 7rem
+   &:hover
+      transform: translateY(-.4rem)
+      box-shadow: $box-shadow
+      &::after
+         animation: explode .5s ease
+   &:active
+      transform: translateY(-.2rem)
+      box-shadow: (0rem .4rem .4rem rgba(0, 0, 0, 0.1))
+   &::after
+      content: ''
+      background-color: $font-white
+      border-radius: 10rem
+      display: inline-block
+      position: absolute
+      width: 25.5rem
+      height: 5.4rem
+      left: 0
+      top: 0
+      z-index: -1
+
+.button_brown
+   &, &:link, &:visited   
+      background-color: $brown-light
+      color: $font-white
+   &::after
+      background-color: $brown-light

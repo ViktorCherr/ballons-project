@@ -1,0 +1,43 @@
+//Миксины - возможность делать шаблоны кода стилей и переиспользовать стили целыми кусками.
+//Можно добавлять аргументы, в данном случае $color
+
+//Стили ссылки
+@mixin style-link($color)
+   text-decoration: none
+   text-transform: uppercase
+   color: $color
+   display: inline-block
+
+
+//Стили для clearfix
+@mixin clearfix()
+   &::after
+      content: ''
+      display: table
+      clear: both
+
+
+/* В аргументе миксина можно указать несколько вариантов брейкпоинтов, таких как:
+
+   - phone
+   - tab-port
+   - tab-land
+   - big-screen
+
+      */
+@mixin respond($breakpoint)
+   @if $breakpoint == phone
+      @media screen and (max-width: 600px)
+         @content
+
+   @if $breakpoint == tab-port
+      @media screen and (max-width: 900px)
+         @content
+
+   @if $breakpoint == tab-land
+      @media screen and (max-width: 1240px)
+         @content
+
+   @if $breakpoint == big-screen
+      @media screen and (min-width: 1800px)
+         @content

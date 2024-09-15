@@ -1,0 +1,206 @@
+.adventure-card
+   padding-top: 2.5rem 
+   padding-bottom: 3rem
+   border-radius: .5rem
+   text-align: center
+   background-color: rgba($font-white, .8)
+   box-shadow: $box-shadow
+   transition: all .3s ease
+   @include respond(tab-land)
+      padding: 2rem .5rem
+   &__icon
+      font-size: 6.3rem
+      display: inline-block
+      background: linear-gradient(90deg, rgba($brown-light, 0.7) 0.03%, rgba($brown, 0.7) 99.94%)
+      -webkit-background-clip: text
+      color: transparent
+   &:hover
+      transform: translateY(-1.5rem) scale(1.03)
+      box-shadow: $box-shadow
+      cursor: pointer
+
+
+.tour-card
+   height: 50rem
+   perspective: 150rem
+   -moz-perspective: 150rem
+   position: relative
+   @include respond(tab-port)
+      height: 55rem
+   @media screen and (max-width: 600px), (hover: none)
+      height: auto
+   &__side
+      height: 50rem
+      transition: all 1s ease-out
+      color: $font-white
+      position: absolute
+      top: 0
+      left: 0 
+      width: 100%
+      backface-visibility: hidden
+      box-shadow: $box-shadow
+      border-radius: .5rem
+      overflow: hidden
+      @include respond(tab-port)
+         height: 55rem
+      @media screen and (max-width: 600px), (hover: none)
+         height: auto
+         position: relative
+      &_front
+         background-color: $font-white
+         @media screen and (max-width: 600px), (hover: none)
+            padding-bottom: 10rem
+      &_back
+         background: linear-gradient(120deg, $brown-light 4%, $brown 100%)
+         transform: rotateY(180deg)
+         @media screen and (max-width: 600px), (hover: none)
+            transform: rotateY(0deg)
+            clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%)
+            margin-top: -10rem
+            height: 15rem
+   &:hover &__side_front
+      transform: rotateY(-180deg)
+      @include respond(phone)
+            transform: rotateY(0deg)
+   &:hover &__side_back
+      transform: rotateY(0deg)
+   &__img
+      height: 22rem
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%)
+      &_1
+         background: $brown-light url(../image/card-1.jpg) center / cover no-repeat
+      &_2
+         background: $brown-light url(../image/card-2.jpg) center / cover no-repeat
+      &_3
+         background: $brown-light url(../image/card-3.jpg) center / cover no-repeat
+      @include respond(tab-port)
+         height: 30rem
+   &__title
+      font-weight: 300
+      font-size: 2.8rem
+      letter-spacing: .2rem
+      text-transform: uppercase
+      text-align: right
+      position: absolute
+      top: 17rem
+      right: 0rem
+      @include respond(tab-port)
+         top: 21rem
+   &__span
+      background: linear-gradient(90deg, $brown-light, $brown)
+      &_1
+         padding: 1rem 2rem .1rem 2rem
+      &_2
+         padding: .1rem 2rem 1rem 2rem
+         position: absolute
+         top: 3.5rem
+         right: 0
+         @include respond(phone)
+            top: 3rem
+   &__descr
+      ul
+         text-align: center
+         list-style-type: none
+         li
+            font-weight: 500
+            width: auto
+            display: inline-block
+            font-size: $font-size-paragraph
+            letter-spacing: .2rem
+            text-decoration: underline
+            color: $font-grey
+            margin-bottom: 2rem
+            &:last-child
+               margin-bottom: 0
+            @include respond(tab-port)
+               display: block
+   &__backside-box
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      @include respond(phone)
+         position: relative
+         top: 0
+         left: 0
+         transform: translate(0, 0)
+         padding: 10rem 3rem 3rem
+   &__text
+      color: $font-white
+      text-transform: uppercase
+      letter-spacing: .2rem
+      text-align: center
+      margin-bottom: 9rem
+      @include respond(phone)
+         margin-bottom: 4rem
+      &_1
+         font-size: 1.6rem   
+         font-weight: 300
+      &_2
+         font-size: 6rem
+         @include respond(phone)
+            font-size: 6rem
+   &__btn
+
+
+.feedback-card
+   width: 85%
+   background: rgba($font-white, 0.75)
+   box-shadow: $box-shadow
+   margin: 0 auto
+   padding: 6rem
+   transform: skewX(-25deg)
+   margin-bottom: 8rem
+   @include respond(tab-land)
+      width: 80%
+      &:last-child
+         margin-bottom: 3rem
+   @include respond(tab-port)
+      transform: skewX(-5deg)
+      text-align: center
+      padding: 3rem
+   &>*
+      transform: skewX(25deg)
+      @include respond(tab-port)
+         transform: skewX(5deg)
+   &__img
+      width: 17rem
+      height: 17rem
+      float: left
+      border-radius: 10rem
+      shape-outside: circle(50% at 50% 50%)
+      -webkit-shape-outside: circle(50% at 50% 50%)
+      margin-right: 4rem
+      overflow: hidden
+      position: relative
+      @include respond(tab-land)
+         width: 19rem
+         height: 19rem
+      @include respond(tab-port)
+         width: 17rem
+         height: 17rem
+         float: none
+         margin: 0 auto 3rem
+   img
+      width: 100%
+      height: auto
+      transform: scale(1.2)
+      transition: all .5s ease  
+   &__name
+      position: absolute
+      top: 50%
+      left: 50%
+      text-align: center
+      transform: translate(-50%, -20%)
+      color: $font-white
+      opacity: 0
+      font-size: 2.4rem
+      letter-spacing: .2rem
+      text-transform: uppercase
+      transition: all .5s ease  
+   &:hover &__name
+      transform: translate(-50%, -50%)
+      opacity: 1
+   &:hover img
+      transform: scale(1)
+      filter: blur(.3rem) brightness(80%)

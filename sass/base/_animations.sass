@@ -1,0 +1,37 @@
+//Кнопка поднимается снизу при старте страницы    
+@keyframes bottomToTop
+   0% 
+      opacity: 0
+      transform: translateY(5rem)
+   100%
+      opacity: 1
+      transform: translateY(0)
+
+
+//Кнопка расширяется при наведении
+@keyframes explode
+   0%
+      transform: scaleX(1) scaleY(1)
+      opacity: 1
+   100%
+      transform: scaleX(2) scaleY(2)
+      opacity: 0
+
+
+//Текст выезжает слева при старте странцы
+@keyframes leftToRight
+   0%
+      opacity: 0
+      transform: translateX(-50%)
+   100%
+      opacity: 1
+      transform: translateX(0%)
+
+//Текст выезжает справа при старте странцы
+@keyframes rightToLeft
+   0%
+      opacity: 0
+      transform: translateX(50%)
+   100%
+      opacity: 1
+      transform: translateX(0%)
